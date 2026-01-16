@@ -6,7 +6,10 @@ pub mod common;
 pub mod identifier;
 pub mod packet;
 pub mod packets;
+pub mod server_bound;
 pub mod types;
+
+pub use server_bound::{ServerBoundPacket, deserialize_server_bound};
 
 pub use block::{BlockRegistry, BlockState, BlockStateId};
 pub use chunk::{Chunk, ChunkSection};
