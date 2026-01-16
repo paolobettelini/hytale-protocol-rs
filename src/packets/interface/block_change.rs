@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// BlockChange packet (ID 100)
 #[derive(Debug, Clone)]
 pub struct BlockChange {
     pub x: i32,

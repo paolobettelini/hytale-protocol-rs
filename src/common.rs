@@ -1,9 +1,6 @@
-//! Common types used in packets.
-
 use crate::codec::{CodecResult, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// Represents an asset with a hash and a name.
 #[derive(Debug, Clone, PartialEq)]
 pub struct Asset {
     pub hash: String,

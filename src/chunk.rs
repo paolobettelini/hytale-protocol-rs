@@ -1,21 +1,10 @@
-//! Chunk data structures.
-
 use crate::block::BlockStateId;
 use bytes::{BufMut, BytesMut};
 
-/// Chunk size in blocks (16x16).
 pub const CHUNK_SIZE: usize = 16;
-
-/// Section height in blocks.
 pub const SECTION_HEIGHT: usize = 16;
-
-/// Total world height in sections.
 pub const WORLD_HEIGHT_SECTIONS: usize = 24; // 384 blocks / 16
-
-/// Minimum Y coordinate (blocks).
 pub const MIN_Y: i32 = -64;
-
-/// Maximum Y coordinate (blocks).
 pub const MAX_Y: i32 = 319;
 
 /// A single 16x16x16 chunk section.

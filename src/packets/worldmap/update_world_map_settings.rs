@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// UpdateWorldMapSettings packet (ID 240)
 #[derive(Debug, Clone)]
 pub struct UpdateWorldMapSettings {
     pub enabled: bool,

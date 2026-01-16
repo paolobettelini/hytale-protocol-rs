@@ -1,4 +1,4 @@
-use crate::codec::{write_string, write_varint};
+use crate::codec::write_string;
 use bytes::{BufMut, BytesMut};
 
 pub struct EntityStatType {

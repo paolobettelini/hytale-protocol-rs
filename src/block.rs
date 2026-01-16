@@ -1,13 +1,9 @@
-//! Block types and registry.
-
 use crate::Identifier;
 use std::collections::HashMap;
 use std::sync::RwLock;
 
-/// A block state ID (numeric, for efficient storage).
 pub type BlockStateId = u32;
 
-/// A block state with its properties.
 #[derive(Clone, Debug)]
 pub struct BlockState {
     pub id: BlockStateId,

@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// MoveItemStack packet (ID 235)
 #[derive(Debug, Clone)]
 pub struct MoveItemStack {
     pub from_slot: i32,

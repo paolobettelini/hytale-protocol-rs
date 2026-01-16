@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// SetClientId packet (ID 100) - Wait, in some versions it's 100
 #[derive(Debug, Clone)]
 pub struct SetClientId {
     pub client_id: i32,

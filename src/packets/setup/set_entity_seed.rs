@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// SetEntitySeed packet (ID 160)
 #[derive(Debug, Clone)]
 pub struct SetEntitySeed {
     pub entity_seed: i32,

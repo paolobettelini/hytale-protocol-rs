@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// Ping packet (ID 2)
 #[derive(Debug, Clone)]
 pub struct Ping {
     pub time: i64,

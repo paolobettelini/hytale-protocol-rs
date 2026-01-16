@@ -1,12 +1,9 @@
-//! Login packets.
-
 use crate::codec::{
     CodecResult, PacketBuffer, PacketRead, PacketWrite, write_string, write_varint,
 };
 use crate::packet::{Packet, PacketDirection, PacketId};
 use bytes::BufMut;
 
-/// Login start from client.
 #[derive(Debug, Clone)]
 pub struct LoginStartPacket {
     pub username: String,
@@ -43,7 +40,6 @@ impl Packet for LoginStartPacket {
     const DIRECTION: PacketDirection = PacketDirection::Serverbound;
 }
 
-/// Login success from server.
 #[derive(Debug, Clone)]
 pub struct LoginSuccessPacket {
     pub uuid: u128,

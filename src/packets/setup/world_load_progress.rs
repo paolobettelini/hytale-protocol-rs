@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, write_string};
 use bytes::{BufMut, BytesMut};
 
-/// WorldLoadProgress packet (ID 21)
 #[derive(Debug, Clone)]
 pub struct WorldLoadProgress {
     pub percent_complete: i32,

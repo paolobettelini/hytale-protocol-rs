@@ -9,7 +9,6 @@ pub enum ClientType {
     Editor = 1,
 }
 
-/// Connect packet (ID 0)
 #[derive(Debug, Clone)]
 pub struct Connect {
     pub protocol_hash: String,

@@ -9,7 +9,6 @@ pub enum DisconnectType {
     ServerShutdown = 2,
 }
 
-/// Disconnect packet (ID 1)
 #[derive(Debug, Clone)]
 pub struct Disconnect {
     pub disconnect_type: DisconnectType,

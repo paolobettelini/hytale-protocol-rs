@@ -1,4 +1,3 @@
-use crate::codec::write_varint;
 use bytes::{BufMut, BytesMut};
 
 pub struct EntityUIComponent {

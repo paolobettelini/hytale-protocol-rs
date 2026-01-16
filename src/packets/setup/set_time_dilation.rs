@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// SetTimeDilation packet (ID 30)
 #[derive(Debug, Clone)]
 pub struct SetTimeDilation {
     pub time_dilation: f32,

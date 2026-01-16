@@ -24,7 +24,6 @@ impl HytaleChunk {
     pub fn serialize(&self) -> Vec<u8> {
         let mut buf = BytesMut::new();
 
-        // 1. Block Palette (chunkSection)
         // Check if empty
         let is_empty = self.blocks.iter().all(|&b| b == 0);
 
@@ -36,21 +35,15 @@ impl HytaleChunk {
             serialize_half_byte_palette(&mut buf, &self.blocks);
         }
 
-        // 2. Filler Palette (fillerSection) - Always empty
         buf.put_u8(0);
-
-        // 3. Rotation Palette (rotationSection) - Always empty
         buf.put_u8(0);
-
         buf.to_vec()
     }
 }
 
 fn serialize_half_byte_palette(buf: &mut BytesMut, blocks: &[u8]) {
-    // 1. Write PaletteType::HalfByte (1)
     buf.put_u8(1);
 
-    // 2. Count frequencies and assign internal IDs
     let mut counts = HashMap::new();
     for &b in blocks {
         *counts.entry(b).or_insert(0u16) += 1;
@@ -77,17 +70,14 @@ fn serialize_half_byte_palette(buf: &mut BytesMut, blocks: &[u8]) {
         external_to_internal.insert(external_id, internal_id);
     }
 
-    // 3. Write numEntries (2 bytes LE)
     buf.put_u16_le(entries.len() as u16);
 
-    // 4. Write entries
     for (internal, external, count) in entries {
         buf.put_u8(internal);
         buf.put_i32_le(external as i32); // External ID is i32
         buf.put_u16_le(count);
     }
 
-    // 5. Write packed block data (16384 bytes)
     let mut packed_data = vec![0u8; 16384];
     for (i, &block) in blocks.iter().enumerate() {
         let internal = *external_to_internal.get(&block).unwrap();

@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// ApplyKnockback packet (ID 88)
 #[derive(Debug, Clone)]
 pub struct ApplyKnockback {
     pub entity_id: i32,

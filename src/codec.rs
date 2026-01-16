@@ -1,5 +1,3 @@
-//! Packet codec traits for reading and writing.
-
 use bytes::{Buf, BufMut, Bytes, BytesMut};
 use thiserror::Error;
 

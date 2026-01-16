@@ -1,8 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// ClientTeleport packet (ID 26)
-/// Sent by client to confirm a teleportation or update orientation.
 #[derive(Debug, Clone)]
 pub struct ClientTeleport {
     pub position_x: f64,

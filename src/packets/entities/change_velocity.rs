@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// ChangeVelocity packet (ID 89)
 #[derive(Debug, Clone)]
 pub struct ChangeVelocity {
     pub entity_id: i32,

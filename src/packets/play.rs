@@ -1,5 +1,3 @@
-//! Play state packets.
-
 use crate::chunk::Chunk;
 use crate::codec::{
     CodecResult, PacketBuffer, PacketRead, PacketWrite, write_string, write_varint,
@@ -179,7 +177,6 @@ impl Packet for KeepAlivePacket {
     const DIRECTION: PacketDirection = PacketDirection::Clientbound;
 }
 
-/// Disconnect packet during play.
 #[derive(Debug, Clone)]
 pub struct DisconnectPacket {
     pub reason: String,

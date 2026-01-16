@@ -1,10 +1,9 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// UpdateWorldMap packet (ID 241)
 #[derive(Debug, Clone)]
 pub struct UpdateWorldMap {
-    // Simplified for now, just empty markers/chunks
+    // empty markers/chunks for now
 }
 
 impl Packet for UpdateWorldMap {

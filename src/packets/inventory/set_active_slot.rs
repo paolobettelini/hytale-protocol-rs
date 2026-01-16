@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// SetActiveSlot packet (ID 233)
 #[derive(Debug, Clone)]
 pub struct SetActiveSlot {
     pub slot: i32,

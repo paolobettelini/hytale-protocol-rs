@@ -1,12 +1,9 @@
-//! Handshake packets.
-
 use crate::codec::{
     CodecResult, PacketBuffer, PacketRead, PacketWrite, write_string, write_varint,
 };
 use crate::packet::{Packet, PacketDirection, PacketId};
 use bytes::BufMut;
 
-/// Initial handshake from client.
 #[derive(Debug, Clone)]
 pub struct HandshakePacket {
     pub protocol_version: i32,

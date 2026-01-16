@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// SetUpdateRate packet (ID 29)
 #[derive(Debug, Clone)]
 pub struct SetUpdateRate {
     pub updates_per_second: f32,

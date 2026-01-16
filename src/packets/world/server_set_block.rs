@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// ServerSetBlock packet (ID 150)
 #[derive(Debug, Clone)]
 pub struct ServerSetBlock {
     pub x: i32,

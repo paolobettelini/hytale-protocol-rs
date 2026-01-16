@@ -1,6 +1,5 @@
 use crate::codec::{write_string, write_varint};
 use bytes::{BufMut, BytesMut};
-use std::collections::HashMap;
 
 pub struct BlockType {
     pub item: Option<String>,

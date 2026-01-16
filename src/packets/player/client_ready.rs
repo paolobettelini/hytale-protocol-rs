@@ -1,8 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::BytesMut;
 
-/// ClientReady packet (ID 24)
-/// Sent by client to signal readiness to receive world data.
 #[derive(Debug, Clone)]
 pub struct ClientReady;
 

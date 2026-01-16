@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// PlaySoundEvent2D packet (ID 151)
 #[derive(Debug, Clone)]
 pub struct PlaySoundEvent2D {
     pub sound_event_id: i32,

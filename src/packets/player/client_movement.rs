@@ -1,8 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::{BufMut, BytesMut};
 
-/// ClientMovement packet (ID 25)
-/// Sent by client to update its position and orientation.
 #[derive(Debug, Clone)]
 pub struct ClientMovement {
     pub position_x: f64,
