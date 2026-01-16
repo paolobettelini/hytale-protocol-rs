@@ -33,17 +33,6 @@ match deserialize_server_bound(packet_id, &payload) {
 }
 ```
 
-### Manual Packet Reading
-
-```rust
-use hytale_protocol::packets::connection::Connect;
-use hytale_protocol::codec::{PacketRead, PacketBuffer};
-use bytes::Bytes;
-
-let mut buf = PacketBuffer::new(Bytes::from(payload));
-let packet = Connect::read(&mut buf)?;
-```
-
 ## Types
 
 ### Core Types
