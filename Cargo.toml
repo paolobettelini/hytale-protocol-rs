@@ -1,0 +1,15 @@
+[package]
+name = "hytale-protocol"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+authors = ["Paolo Bettelini"]
+
+[dependencies]
+bytes = "1.11.0"
+serde = { version = "1.0", features = ["derive"] }
+thiserror = "2.0.17"
+uuid = "1.19.0"
+zstd = "0.13.3"
+
+
