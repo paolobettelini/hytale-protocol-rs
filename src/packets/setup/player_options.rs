@@ -224,7 +224,6 @@ impl PlayerSkin {
     }
 }
 
-/// PlayerOptions packet (ID 33)
 #[derive(Debug, Clone)]
 pub struct PlayerOptions {
     pub skin: Option<PlayerSkin>,

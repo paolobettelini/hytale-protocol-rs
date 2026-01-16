@@ -1,20 +1,3 @@
-//! Hytale network protocol implementation.
-//!
-//! Provides packet encoding/decoding for Hytale server/client communication.
-//! Supports all packet types used in the official Hytale client and server.
-//!
-//! # Example
-//!
-//! ```no_run
-//! use hytale_protocol::packets::connection::Connect;
-//! use hytale_protocol::codec::PacketRead;
-//! use std::io::Cursor;
-//!
-//! let data: &[u8] = &[/* packet bytes */];
-//! let mut cursor = Cursor::new(data);
-//! let packet = Connect::read(&mut cursor).unwrap();
-//! ```
-
 pub mod block;
 pub mod chunk;
 pub mod chunk_data;

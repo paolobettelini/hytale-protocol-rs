@@ -7,7 +7,6 @@ pub enum PongType {
     Pong = 0,
 }
 
-/// Pong packet (ID 3)
 #[derive(Debug, Clone)]
 pub struct Pong {
     pub pong_type: PongType,
