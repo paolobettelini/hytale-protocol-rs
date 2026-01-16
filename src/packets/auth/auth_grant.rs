@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, write_string};
 use bytes::{BufMut, BytesMut};
 
-/// AuthGrant packet (ID 11) - Sent by server after validating identity token.
 #[derive(Debug, Clone)]
 pub struct AuthGrant {
     pub authorization_grant: Option<String>,
@@ -41,8 +40,12 @@ impl PacketRead for AuthGrant {
 impl PacketWrite for AuthGrant {
     fn write(&self, buf: &mut BytesMut) {
         let mut null_bits: u8 = 0;
-        if self.authorization_grant.is_some() { null_bits |= 1; }
-        if self.server_identity_token.is_some() { null_bits |= 2; }
+        if self.authorization_grant.is_some() {
+            null_bits |= 1;
+        }
+        if self.server_identity_token.is_some() {
+            null_bits |= 2;
+        }
         buf.put_u8(null_bits);
 
         let mut field_data = BytesMut::new();

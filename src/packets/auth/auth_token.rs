@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, write_string};
 use bytes::{BufMut, BytesMut};
 
-/// AuthToken packet (ID 12) - Sent by client after exchanging auth grant.
 #[derive(Debug, Clone)]
 pub struct AuthToken {
     pub access_token: Option<String>,
@@ -41,8 +40,12 @@ impl PacketRead for AuthToken {
 impl PacketWrite for AuthToken {
     fn write(&self, buf: &mut BytesMut) {
         let mut null_bits: u8 = 0;
-        if self.access_token.is_some() { null_bits |= 1; }
-        if self.server_authorization_grant.is_some() { null_bits |= 2; }
+        if self.access_token.is_some() {
+            null_bits |= 1;
+        }
+        if self.server_authorization_grant.is_some() {
+            null_bits |= 2;
+        }
         buf.put_u8(null_bits);
 
         let mut field_data = BytesMut::new();

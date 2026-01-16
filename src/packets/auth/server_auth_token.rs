@@ -1,7 +1,8 @@
-use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, write_string, write_varint};
+use crate::codec::{
+    CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, write_string, write_varint,
+};
 use bytes::{BufMut, BytesMut};
 
-/// ServerAuthToken packet (ID 13) - Final auth packet from server.
 #[derive(Debug, Clone)]
 pub struct ServerAuthToken {
     pub server_access_token: Option<String>,
@@ -42,8 +43,12 @@ impl PacketRead for ServerAuthToken {
 impl PacketWrite for ServerAuthToken {
     fn write(&self, buf: &mut BytesMut) {
         let mut null_bits: u8 = 0;
-        if self.server_access_token.is_some() { null_bits |= 1; }
-        if self.password_challenge.is_some() { null_bits |= 2; }
+        if self.server_access_token.is_some() {
+            null_bits |= 1;
+        }
+        if self.password_challenge.is_some() {
+            null_bits |= 2;
+        }
         buf.put_u8(null_bits);
 
         let mut field_data = BytesMut::new();

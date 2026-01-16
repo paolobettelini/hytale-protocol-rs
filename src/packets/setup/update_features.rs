@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, write_varint};
 use bytes::{BufMut, BytesMut};
 
-/// UpdateFeatures packet (ID 31)
 #[derive(Debug, Clone)]
 pub struct UpdateFeatures {
     pub features: Option<Vec<(u8, bool)>>,
@@ -22,7 +21,9 @@ impl PacketRead for UpdateFeatures {
                 let enabled = buf.read_bool()?;
                 features.push((feature, enabled));
             }
-            Ok(Self { features: Some(features) })
+            Ok(Self {
+                features: Some(features),
+            })
         } else {
             Ok(Self { features: None })
         }

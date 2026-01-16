@@ -2,7 +2,6 @@ use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, w
 use crate::common::Asset;
 use bytes::{BufMut, BytesMut};
 
-/// WorldSettings packet (ID 21)
 #[derive(Debug, Clone)]
 pub struct WorldSettings {
     pub game_version: String,
@@ -15,7 +14,9 @@ pub struct WorldSettings {
 
 impl Packet for WorldSettings {
     const PACKET_ID: u32 = 21;
-    fn is_compressed() -> bool { true }
+    fn is_compressed() -> bool {
+        true
+    }
 }
 
 impl PacketRead for WorldSettings {
@@ -52,8 +53,10 @@ impl PacketRead for WorldSettings {
 impl PacketWrite for WorldSettings {
     fn write(&self, buf: &mut BytesMut) {
         let mut null_bits = 0u8;
-        if self.required_assets.is_some() { null_bits |= 1; }
-        
+        if self.required_assets.is_some() {
+            null_bits |= 1;
+        }
+
         buf.put_u8(null_bits);
         write_string(buf, &self.game_version);
         buf.put_f64_le(self.time_of_day);

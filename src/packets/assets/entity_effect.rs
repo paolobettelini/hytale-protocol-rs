@@ -1,4 +1,4 @@
-use crate::codec::{write_string, write_varint};
+use crate::codec::write_string;
 use bytes::{BufMut, BytesMut};
 
 pub struct EntityEffect {
@@ -12,11 +12,11 @@ pub struct EntityEffect {
     pub overlap_behavior: u8, // Enum: Extend(0), Overwrite(1), Ignore(2)
     pub damage_calculator_cooldown: f64,
     pub value_type: u8, // Enum: Percent(0), Absolute(1)
-    // Optional fields defaulted to None
-    // pub application_effects: Option<ApplicationEffects>,
-    // pub model_override: Option<ModelOverride>,
-    // pub status_effect_icon: Option<String>,
-    // pub stat_modifiers: Option<HashMap<i32, f32>>,
+                        // Optional fields defaulted to None
+                        // pub application_effects: Option<ApplicationEffects>,
+                        // pub model_override: Option<ModelOverride>,
+                        // pub status_effect_icon: Option<String>,
+                        // pub stat_modifiers: Option<HashMap<i32, f32>>,
 }
 
 impl Default for EntityEffect {

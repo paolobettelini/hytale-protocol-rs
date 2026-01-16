@@ -1,7 +1,6 @@
 use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite};
 use bytes::BytesMut;
 
-/// WorldLoadFinished packet (ID 22)
 #[derive(Debug, Clone)]
 pub struct WorldLoadFinished {}
 
@@ -16,6 +15,5 @@ impl PacketRead for WorldLoadFinished {
 }
 
 impl PacketWrite for WorldLoadFinished {
-    fn write(&self, _buf: &mut BytesMut) {
-    }
+    fn write(&self, _buf: &mut BytesMut) {}
 }

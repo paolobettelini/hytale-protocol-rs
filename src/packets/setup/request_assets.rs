@@ -2,7 +2,6 @@ use crate::codec::{CodecResult, Packet, PacketBuffer, PacketRead, PacketWrite, w
 use crate::common::Asset;
 use bytes::{BufMut, BytesMut};
 
-/// RequestAssets packet (ID 17)
 #[derive(Debug, Clone)]
 pub struct RequestAssets {
     pub assets: Option<Vec<Asset>>,
@@ -10,7 +9,9 @@ pub struct RequestAssets {
 
 impl Packet for RequestAssets {
     const PACKET_ID: u32 = 17;
-    fn is_compressed() -> bool { true }
+    fn is_compressed() -> bool {
+        true
+    }
 }
 
 impl PacketRead for RequestAssets {
@@ -22,7 +23,9 @@ impl PacketRead for RequestAssets {
             for _ in 0..count {
                 assets.push(Asset::read(buf)?);
             }
-            Ok(Self { assets: Some(assets) })
+            Ok(Self {
+                assets: Some(assets),
+            })
         } else {
             Ok(Self { assets: None })
         }

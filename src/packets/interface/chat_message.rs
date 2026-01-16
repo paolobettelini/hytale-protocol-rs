@@ -9,7 +9,6 @@ pub enum ChatType {
     Whisper = 2,
 }
 
-/// ChatMessage packet (ID 99)
 #[derive(Debug, Clone)]
 pub struct ChatMessage {
     pub message: String,
@@ -37,7 +36,11 @@ impl PacketRead for ChatMessage {
             None
         };
 
-        Ok(Self { message, chat_type, sender_name })
+        Ok(Self {
+            message,
+            chat_type,
+            sender_name,
+        })
     }
 }
 
